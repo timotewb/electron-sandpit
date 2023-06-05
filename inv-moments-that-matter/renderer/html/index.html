@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+</head>
+<body>
+    <div id="body">
+
+        <!-- Menu bar -->
+            <svg id="hb" viewBox="0 0 100 80">
+                <a href="">
+                    <rect class="b s" id="s1" ></rect>
+                    <rect class="b s" id="s0" ></rect>
+                    <rect class="b" id="b0" ></rect>
+                    <rect class="b" id="b1"></rect>
+                    <rect class="b" id="b2"></rect>
+                </a>
+            </svg>
+
+        <!-- Responce -->
+        <svg id="t" width="51px" height="50px" viewBox="0 0 51 50" style="display:none;">
+
+            <rect id="tr1" class="tr">
+                <animate attributeName="height" values="50;10;50" begin="0s" dur="1s" repeatCount="indefinite" />
+                <animate attributeName="y" values="0;20;0" begin="0s" dur="1s" repeatCount="indefinite" />
+            </rect>
+
+            <rect id="tr2" class="tr" x="15">
+                <animate attributeName="height" values="50;10;50" begin="0.2s" dur="1s" repeatCount="indefinite" />
+                <animate attributeName="y" values="0;20;0" begin="0.2s" dur="1s" repeatCount="indefinite" />
+            </rect>
+
+            <rect id="tr3" class="tr" x="30">
+                <animate attributeName="height" values="40;10;40" begin="0.4s" dur="1s" repeatCount="indefinite" />
+                <animate attributeName="y" values="0;20;0" begin="0.4s" dur="1s" repeatCount="indefinite" />
+            </rect>
+        </svg>
+        <div id="r" style="display:none;">
+            Listening<span id="rb">...</span>
+        </div>
+        <textarea type="text" id="ta" wrap="soft"></textarea>
+    </div>
+    <script>
+        var textarea = document.getElementById('ta');
+        var thinker = document.getElementById('t');
+        var response = document.getElementById('r');
+        textarea.addEventListener('input', function () {
+            if(this.value.length>3){
+                thinker.style.display = "block";
+                response.style.display = "block";
+            } else {
+                thinker.style.display = "none";
+                response.style.display = "none";
+            }
+        }, false);
+
+              </script>
+</body>
+</html>

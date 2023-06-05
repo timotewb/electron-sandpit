@@ -1,0 +1,136 @@
+:root {
+--hb-spacing: 22;
+--color-main-h: 190;
+--color-b2: hsl(190, 77%, 88%);
+--color-b1: hsl(191, 80%, 75%);
+--color-main: hsl(190, 100%, 42%);
+--color-d1: hsl(201, 100%, 36%);
+--color-d2: hsl(239, 94%, 19%);
+--color-grey-main: hsl(0, 0%, 70%);
+--color-grey-b1: hsl(0, 0%, 96%);
+}
+
+#body {
+    border-radius: 7px;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.45);
+    background-image: linear-gradient(to bottom right, var(--color-b1), var(--color-main));
+    width: 400px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: [start] 10% [colLine1] 10% [colLine2] auto [colLine3] 10% [colLine4] 10% [end];
+    grid-template-rows: [top] 20% [rowLine1] 30% [rowLine2] auto [rowLine3] 10% [bottom];
+
+  }
+
+/* ---------------------------------------------------------------------------------------- */
+/* Input text Text Area (ta) */
+/* ---------------------------------------------------------------------------------------- */
+#ta {
+  border-radius: 5px;
+  border-color: transparent;
+  outline: none;
+  grid-column: colLine1 / span colLine4;
+  grid-row: rowLine2 / span rowLine3;
+  resize: none;
+  background-color: var(--color-grey-b1);
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* Hamberger (hb) svg button */
+/* ---------------------------------------------------------------------------------------- */
+#hb {
+  width: 80%;
+  padding: 25%;
+  grid-column: start / colLine1;
+  grid-row: top / span rowLine1;
+  transition: transform .5s ease;
+}
+
+#hb .b {
+  width: 80px;
+  height: 10px;
+  rx: 10px;
+  fill: var(--color-grey-b1);
+}
+#hb:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+#hb #b1 {
+  y: var(--hb-spacing);
+}
+
+#hb #b2 {
+  y: calc(var(--hb-spacing)*2);
+}
+
+#hb .s {
+  width: 80px;
+  height: 10px;
+  fill: transparent;
+}
+
+#hb #s0 {
+  y: calc(var(--hb-spacing)/2);
+}
+
+#hb #s1 {
+  y: calc(var(--hb-spacing) + (var(--hb-spacing)/2));
+}
+
+
+/* ---------------------------------------------------------------------------------------- */
+/* Thinking (t) */
+/* ---------------------------------------------------------------------------------------- */
+#t {
+  grid-column: colLine1 / colLine2;
+  grid-row: rowLine1 / span rowLine2;
+  width: 100%;
+
+  .tr{
+    width: 7px;
+    y: 0;
+  }
+
+  #tr1 {
+    fill: var(--color-d1);
+  }
+
+  #tr2 {
+    fill: var(--color-d1);
+  }
+
+  #tr3 {
+    fill: var(--color-d1);
+  }
+}
+
+
+/* ---------------------------------------------------------------------------------------- */
+/* Response */
+/* ---------------------------------------------------------------------------------------- */
+#r {
+  width: 100%;
+  height: 100%;
+  grid-column: colLine2 / colLine3;
+  grid-row: rowLine1 / span rowLine2;
+  color:azure;
+
+  animation: type 4s steps(60, end);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes type{
+  from { width: 0; }
+}
+
+#rb {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
